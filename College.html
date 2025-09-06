@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CMIS User Registration & Login</title>
+    <meta name="description" content="<meta name="description" content="ROSA is an enchanting Parallax Restaurant WordPress Theme that allows you to tell your story in an enjoyable way, perfect for restaurants or coffee shops.">
+    <meta name="viewport" content="width = device-width, initial-scale = 1, shrink-to-fit = no">
+    <link rel="xml" type="text/xml" href="maven pom.xml" />
+    <link rel="xml" type="text/xml" href="LoggingConfig.xml" />
+    <link rel="xml" type="text/java" href="ApiExceptionHandler.java" />
+    <link rel="xml" type="text/java" href="EEmailAlreadyExistesException.java" />
+    <link rel="xml" type="text/java" href="JwtAuthenticationFilter.java" />
+    <link rel="xml" type="text/java" href="JwtUtil.java" />
+    <link rel="xml" type="text/java" href="LoginRequest.java" />
+    <link rel="xml" type="text/java" href="LoginResponse.java" />
+    <link rel="xml" type="text/java" href="registerRequest.java" />
+    <link rel="xml" type="text/java" href="Role.java" />
+    <link rel="xml" type="text/java" href="SecurityConfig.java" />
+    <link rel="xml" type="text/java" href="StudentCOnteroller.java" />
+    <link rel="xml" type="text/java" href="SwaggerConfig.java" />
+    <link rel="xml" type="text/java" href="User.java" />
+    <link rel="xml" type="text/java" href="UserController.java" />
+    <link rel="xml" type="text/java" href="UserDetails.java" />
+    <link rel="xml" type="text/java" href="UserNotFoundException.java" />
+    <link rel="xml" type="text/java" href="UserService.java" />
+    <link rel="xml" type="text/java" href="UserServiceTest.java" />
+    
+<div class="dots">
+      <div class="active one" data-x="header"></div>
+      <div class="two" data-x=".recipes"></div>
+      <div class="three" data-x=".fixed-image"></div>
+  </div>
+  <header>
+      <nav>
+          <div class="logo">
+              <a href="index.html"><img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988515/logo-rosa-white.png" alt="Rosa Logo"></a>
+          </div>
+          <div class="toggle">
+              <span class="first"></span>
+              <span class="middle"></span>
+              <span class="last"></span>
+          </div>
+          <div class="navigation-bar">
+              <ul>
+                  <li class="active"><a href="restaurant.html">Home<span class="underline"></span></a></li>
+                  <li><a href="#"><a href="Academics.html">Reservations<span class="underline"></span></a></li>
+                  <li><a href="#"><a href="menu.html">Menu<span class="underline"></span></a></li>
+                  <li><a href="#"><a href="order.html">Order<span class="underline"></span></a></li>
+                  <li><a href="#"><a href="cart.html">Cart<span class="underline"></span></a></li>
+                  <li><a href="#"><a href="history.html">History<span class="underline"></span></a></li>
+                  <li><a href="#"><a href="TrackOrder.html">TrackOrder<span class="underline"></span></a></li>
+              </ul>
+          </div>
+      </nav>
+      <div class="text">
+          <h2>Welcome</h2>
+          <h1>THE ROSA</h1>
+          <div class="arrow">
+              <span class="left"></span>
+              <i class="fas fa-asterisk"></i>
+              <span class="right"></span>
+          </div>
+          <span>Ready To Be Opened</span>
+          <div class="button"><button>Explore</button></div>
+      </div>
+      <svg class="svg-down" width="192" height="61" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 160.7 61.5" enable-background="new 0 0 160.7 61.5" xml:space="preserve"><path fill="currentColor" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"></path></svg>
+      <div class="arrow-down">
+      </div>
+  </header>
+  <div class="about-us">
+      <div class="text">
+          <h2>Discover</h2>
+          <h3>Our Story</h3>
+          <div><i class="fas fa-asterisk"></i></div>
+          <p>Rosa is a restaurant, bar and coffee roastery located on a busy corner site in Farringdon’s Exmouth Market. With glazed frontage on two sides of the building, overlooking the market and a bustling London intersection.</p>
+          <div><a class="a-CTA" href="#">About Us</a></div>
+      </div>
+      <div class="image-container">
+          <div class="image image1">
+              <img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988527/vertical-photo-1.jpg" alt="Food Photo">
+          </div>
+          <div class="image image2">
+              <img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988532/vertical-photo-2.jpg" alt="Food Photo">
+          </div>
+      </div>
+  </div>
+  <div class="recipes">
+      <div class="image"></div>
+      <div class="text">
+          <h2>Tasteful</h2>
+          <h3>Recipes</h3>
+      </div>
+  </div>  
+  <div class="menu">
+      <div class="box-model">
+          <i class="fas fa-times fa-2x close"></i>
+          <div class="arrow">
+              <div class="arrow arrow-right"></div>
+              <div class="arrow arrow-left"></div>
+          </div>
+          <div class="box-image-container">
+              <div class="box-image">
+                  <img src=""  alt="Food Photo">
+              </div>
+          </div>
+      </div>
+      <div class="menu-image-container">
+          <div class="image active">
+              <img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988517/big-menu-thumb-1.jpg" alt="Food Photo">
+          </div>
+          <div class="image">
+              <img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988526/big-menu-thumb-2.jpg" alt="Food Photo">
+          </div>
+          <div class="image">
+              <img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988525/big-menu-thumb-4.jpg" alt="Food Photo">
+          </div>
+          <div class="image">
+              <img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988524/big-menu-thumb-6.jpg" alt="Food Photo">
+          </div>
+      </div>
+      <div class="text">
+          <h2>Discover</h2>
+          <h3>Menu</h3>
+          <div><i class="fas fa-asterisk"></i></div>
+          <p>For those with pure food indulgence in mind, come next door and sate your desires with our ever changing internationally and seasonally inspired small plates.  We love food, lots of different food, just like you.</p>
+          <div><a class="a-CTA" href="#">View The Full Menu</a></div>
+      </div>
+  </div>
+  <div class="fixed-image">
+      <div class="text">
+          <h2>The Perfect</h2>
+          <h3>Blend</h3>
+      </div>
+  </div>
+  <div class="reservation">
+      <div class="text">
+          <h2>Culinary</h2>
+          <h3>Delight</h3>
+          <div><i class="fas fa-asterisk"></i></div>
+          <p>We promise an intimate and relaxed dining experience that offers something different to local and foreign patrons and ensures you enjoy a memorable food experience every time.</p>
+          <div><a class="a-CTA" href="#">Make a Reservation</a></div>
+      </div>
+      <div class="image-container">
+          <div class="image image1">
+              <img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988518/bacon-1.jpg" alt="Food Photo">
+          </div>
+          <div class="image image2">
+              <img src="https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988518/bacon-2.jpg" alt="Food Photo">
+          </div>
+      </div>
+  </div>
+  <footer>
+      <div class="text">
+          <h2>ABOUT ROSA</h2>
+          <div><i class="fas fa-asterisk"></i></div>
+          <p>ROSA is an enchanting and easy-to-use parallax Restaurant WordPress theme that allows you to tell your story in a dynamic, narrative and enjoyable way, making it perfect for restaurants, bakeries, bars or coffee shops.</p>
+      </div>
+      <div class="contact-container">
+        <div class="social-media">
+            <h3>Follow Along</h3>
+            <div class="links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+          <div class="newsletter">
+            <h3>NewsLetter</h3>
+              <form method="post">
+                  <input type="email" name="email" placeholder="Type Your Email">
+                  <i class="fas fa-envelope"></i>
+              </form>
+          </div>
+      </div>
+  </footer>
+  <div class="copyright">
+      <svg class="svg-up" width="192" height="61" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 160.7 61.5" enable-background="new 0 0 160.7 61.5" xml:space="preserve"><path fill="#262526" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"></path></svg>
+      <i class="fas fa-angle-double-up arrow-up"></i>
+      <ul class="info">
+          <li>© ROSA 2017</li>
+          <li>13 Hanway Square, London</li>
+          <li>Tel: 71494563</li>
+          <li>Handcrafted with love by <a href="#">Pixelgrade</a> Team</li>
+      </ul>
+      <ul class="CTA">
+          <li><a href="#">PERMISSIONS AND COPYRIGHT</a></li>
+          <li><a href="#">CONTACT THE TEAM</a></li>
+      </ul>
+  </div>  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+        /* CSS Reset */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+        #container {
+            background: white;
+            width: 400px;
+            border-radius: 8px;
+            padding: 30px 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #0077cc;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 18px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #0077cc;
+            outline: none;
+        }
+        button {
+            background-color: #0077cc;
+            color: white;
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+        .message {
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        .message.error {
+            color: #cc3300;
+            background-color: #ffe6e1;
+            border: 1px solid #cc3300;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .message.success {
+            color: #007700;
+            background-color: #e6ffe6;
+            border: 1px solid #007700;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 12px;
+            color: #0077cc;
+            cursor: pointer;
+            user-select: none;
+        }
+        .token-output {
+            font-size: 0.9rem;
+            background: #f4f5f7;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 4px;
+            word-break: break-all;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="form-title">User Registration</h1>
+
+        <!-- Registration Form -->
+        <form id="register-form">
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" name="email" required placeholder="Enter email" />
+            
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" name="password" required placeholder="Enter password" />
+            
+            <label for="reg-confirm-password">Confirm Password</label>
+            <input type="password" id="reg-confirm-password" name="confirmPassword" required placeholder="Confirm password" />
+            
+            <button type="submit">Register</button>
+            <div id="register-message" class="message" aria-live="polite"></div>
+        </form>
+
+        <!-- Login Form -->
+        <form id="login-form" style="display:none;">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" name="email" required placeholder="Enter email" />
+            
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password" required placeholder="Enter password" />
+            
+            <button type="submit">Login</button>
+            <div id="login-message" class="message" aria-live="polite"></div>
+        </form>
+
+        <div class="toggle-link" id="toggle-link">Already have an account? Login here</div>
+
+        <!-- Show JWT Token after login -->
+        <div id="token-container" style="display:none;">
+            <h2>JWT Token</h2>
+            <div class="token-output" id="token-output"></div>
+        </div>
+    </div>
+
+<script>
+    const apiBase = 'http://localhost:8080/v1/auth';
+    const registerForm = document.getElementById('register-form');
+    const loginForm = document.getElementById('login-form');
+    const toggleLink = document.getElementById('toggle-link');
+    const formTitle = document.getElementById('form-title');
+    const registerMessageDiv = document.getElementById('register-message');
+    const loginMessageDiv = document.getElementById('login-message');
+    const tokenContainer = document.getElementById('token-container');
+    const tokenOutput = document.getElementById('token-output');
+
+    // Show registration or login form toggle
+    let showingRegister = true;
+    toggleLink.addEventListener('click', () => {
+        showingRegister = !showingRegister;
+        if (showingRegister) {
+            formTitle.textContent = 'User Registration';
+            registerForm.style.display = 'flex';
+            loginForm.style.display = 'none';
+            toggleLink.textContent = 'Already have an account? Login here';
+            clearMessages();
+            tokenContainer.style.display = 'none';
+        } else {
+            formTitle.textContent = 'User Login';
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'flex';
+            toggleLink.textContent = "Don't have an account? Register here";
+            clearMessages();
+            tokenContainer.style.display = 'none';
+        }
+    });
+
+    function clearMessages() {
+        registerMessageDiv.textContent = '';
+        registerMessageDiv.className = "message";
+        loginMessageDiv.textContent = '';
+        loginMessageDiv.className = "message";
+    }
+
+    // Helper function to handle errors
+    function formatAndShowError(div, error) {
+        if (typeof error === 'string') {
+            div.textContent = error;
+        } else if (typeof error === 'object') {
+            let messages = Object.values(error).join(' ');
+            div.textContent = messages || 'An error occurred.';
+        } else {
+            div.textContent = 'An unknown error occurred.';
+        }
+        div.className = 'message error';
+    }
+
+    // Register form submission
+    registerForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        clearMessages();
+
+        const email = document.getElementById('reg-email').value.trim();
+        const password = document.getElementById('reg-password').value;
+        const confirmPassword = document.getElementById('reg-confirm-password').value;
+
+        if (password !== confirmPassword) {
+            formatAndShowError(registerMessageDiv, "Passwords do not match.");
+            return;
+        }
+
+        const payload = { email, password, confirmPassword };
+
+        try {
+            let response = await fetch(`${apiBase}/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            let data = await response.json();
+
+            if (response.ok) {
+                registerMessageDiv.textContent = data.message || 'Registration successful.';
+                registerMessageDiv.className = 'message success';
+                registerForm.reset();
+            } else {
+                formatAndShowError(registerMessageDiv, data);
+            }
+
+        } catch (error) {
+            formatAndShowError(registerMessageDiv, 'Network error. Please try again.');
+        }
+    });
+
+    // Login form submission
+    loginForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        clearMessages();
+
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value;
+
+        const payload = { email, password };
+
+        try {
+            let response = await fetch(`${apiBase}/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            let data = await response.json();
+
+            if (response.ok) {
+                loginMessageDiv.textContent = 'Login successful.';
+                loginMessageDiv.className = 'message success';
+
+                localStorage.setItem('cmis_jwt_token', data.token);
+
+                tokenOutput.textContent = data.token;
+                tokenContainer.style.display = 'block';
+
+                loginForm.reset();
+            } else {
+                formatAndShowError(loginMessageDiv, data);
+                tokenContainer.style.display = 'none';
+                localStorage.removeItem('cmis_jwt_token');
+            }
+        } catch (error) {
+            formatAndShowError(loginMessageDiv, 'Network error. Please try again.');
+            tokenContainer.style.display = 'none';
+            localStorage.removeItem('cmis_jwt_token');
+        }
+    });
+
+    // Example: How to use JWT token in future requests
+    // This function shows a demo call with the token included in Authorization header
+    async function demoAuthenticatedRequest() {
+        const token = localStorage.getItem('cmis_jwt_token');
+        if (!token) {
+            alert('You need to login to make authenticated requests!');
+            return;
+        }
+        try {
+            let response = await fetch('http://localhost:8080/v1/secure-endpoint', {
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            });
+            if (response.ok) {
+                const data = await response.json();
+                alert('Authenticated call success: ' + JSON.stringify(data));
+            } else {
+                alert('Authenticated call failed with status ' + response.status);
+            }
+        } catch (err) {
+            alert('Error making authenticated request: ' + err.message);
+        }
+    }
+</script>
+</body>
+</html>
